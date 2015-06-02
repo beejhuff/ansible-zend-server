@@ -1,0 +1,36 @@
+---
+- name: Ensure Nginx repository key is added (when web server = nginx).
+  apt_key:
+    url: http://nginx.org/keys/nginx_signing.key
+    state: present
+  when: "zs_web_server == 'nginx'"
+
+- name: Ensure Nginx resource list is present (when web server = nginx).
+  copy:
+    src: nginx.list
+    dest: /etc/apt/sources.list.d
+  when: "zs_web_server == 'nginx'"
+
+- name: Ensure Zend repository public key is added.
+  apt_key:
+    url: http://repos.zend.com/zend.key
+    state: present
+
+- name: Ensure Zend Server resource list is present.
+  copy:
+    src: zs-{{ zs_web_server }}-{{ zs_release }}.list
+    dest: /etc/apt/sources.list.d
+
+- name: Ensure Zend Server is installed (when web server = nginx).
+  apt:
+    pkg: zend-server-nginx-php-{{ zs_php_version }}
+    state: latest
+    update_cache: yes
+  when: "zs_web_server == 'nginx'"
+
+- name: Ensure Zend Server is installed(when web server = apache).
+  apt:
+    pkg: zend-server-php-{{ zs_php_version }}
+    state: latest
+    update_cache: yes
+  when: "zs_web_server == 'apache'"

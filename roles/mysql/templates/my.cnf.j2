@@ -1,0 +1,57 @@
+# Copyright (c) 2014, Oracle and/or its affiliates. All rights reserved.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+#
+# The MySQL Community Server configuration file.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+[client]
+port            = {{ mysql_port }}
+socket          = {{ mysql_socket }}
+
+[mysqld_safe]
+pid-file        = {{ mysql_pid }}
+socket          = {{ mysql_socket }}
+nice            = {{ mysql_nice }}
+
+[mysqld]
+user            = {{ mysql_user }}
+pid-file        = {{ mysql_pid }}
+socket          = {{ mysql_socket }}
+port            = {{ mysql_port }}
+basedir         = {{ mysql_base_dir }}
+datadir         = {{ mysql_data_dir }}
+tmpdir          = {{ mysql_tmp_dir }}
+lc-messages-dir = {{ mysql_ls_msg_dir }}
+explicit_defaults_for_timestamp
+
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+bind-address    = {{ mysql_bind_address }}
+
+log-error       = {{ mysql_error_log }}
+
+# Recommended in standard MySQL setup
+sql_mode= {{ mysql_sql_mode }}
+
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links= {{ mysql_symbolic_links }}
+
+# * IMPORTANT: Additional settings that can override those from this file!
+#   The files must end with '.cnf', otherwise they'll be ignored.
+#
+!includedir /etc/mysql/conf.d/

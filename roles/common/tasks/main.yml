@@ -1,0 +1,21 @@
+---
+- name: update cache
+  apt: update_cache=yes
+
+- name: upgrade packages
+  apt: upgrade=dist
+
+- name: apt packages
+  apt: name={{ item }} state=latest
+  with_items: common_apt_packages
+
+- name: check if a reboot is required
+  shell: "[ -f /var/run/reboot-required ]"
+  failed_when: False
+  register: reboot_required
+  changed_when: reboot_required.rc == 0
+  notify: reboot
+
+- name: Ensure required TCP are open.
+  ufw: rule=allow port={{ item }} proto=tcp
+  with_items: common_allowed_tcp_ports

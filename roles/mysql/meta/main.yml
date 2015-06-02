@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Hardie Boeve
+  company: Boeve Web Development
+  description: "Install and configure MySQL version 5.6.*"
+  min_ansible_version: 1.9
+  license: MIT
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+  - system
+
+dependencies: []

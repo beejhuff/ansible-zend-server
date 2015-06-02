@@ -1,0 +1,5 @@
+---
+mysql_root_password: myPassword
+zs_release: early-access # options: stable | early-access
+zs_php_version: 5.6
+zs_web_server: apache    # options: nginx | apache

@@ -1,0 +1,42 @@
+---
+- name: List root user hosts
+  command: mysql -NBe 'SELECT Host FROM mysql.user WHERE User = "root" ORDER BY (Host="localhost") ASC'
+  register: mysql_root_hosts
+  changed_when: false
+
+- name: Set root password.
+  mysql_user:
+    name: root
+    host: "{{ item }}"
+    password: "{{ mysql_root_password }}"
+  with_items: mysql_root_hosts.stdout_lines
+
+- name: Create root cnf.
+  template:
+    src: root.cnf.j2
+    dest: ~/.my.cnf
+    owner: root
+    group: root
+    mode: 0600
+
+- name: List anonymous user with hosts.
+  command: mysql -NBe 'SELECT Host FROM mysql.user WHERE User = ""'
+  register: mysql_anonymous_hosts
+  changed_when: false
+
+- name: Remove anonymous users.
+  mysql_user:
+    name: ""
+    host: "{{ item }}"
+    state: absent
+  with_items: mysql_anonymous_hosts.stdout_lines
+
+- name: Remove anonymous users (without host)
+  mysql_user:
+    name: ""
+    state: absent
+
+- name: Remove test db.
+  mysql_db:
+    name: test
+    state: absent

@@ -1,0 +1,8 @@
+- name: Ensure MySQL signing key is present.
+  copy: src=mysql-key dest=/tmp
+
+- name: Ensure MySQL key is added.
+  apt_key: file=/tmp/mysql-key state=present
+
+- name: Ensure MySQL resource list is present.
+  copy: src=mysql.list dest=/etc/apt/sources.list.d

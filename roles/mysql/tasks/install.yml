@@ -1,0 +1,9 @@
+---
+- name: Ensure MySQL is installed.
+  apt:
+    pkg: "{{ item }}"
+    update_cache: yes
+  with_items: mysql_packages
+
+- name: Start MySQL server.
+  service: name=mysql state=started
