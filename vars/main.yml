@@ -1,4 +1,14 @@
 ---
+# Common role
+common_apt_packages:
+  - python-apt
+
+common_allowed_tcp_ports:
+  - 22
+  - 80
+  - 10081
+  - 10082
+
 mysql_root_password: myPassword
 zs_release: early-access # options: stable | early-access
 zs_php_version: 5.6      # php version
