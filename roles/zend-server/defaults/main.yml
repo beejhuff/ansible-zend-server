@@ -1,4 +1,4 @@
 ---
 zs_release: early-access # options: stable | early-access
-zs_php_version: 5.6
+zs_php_version: 5.6      # php version
 zs_web_server: nginx     # options: nginx | apache
