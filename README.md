@@ -42,8 +42,11 @@ full list of of settings (see `vars/main.yml`).
 
 ## TODO
 
+  - Cleanup and improve roles.
+
   - MySQL: Improve the cleanup off the default installation.
   - MySQL: Needs my.cnf more options?
   
+  - Zend Server: Add option to add server certificate.
   - Zend Server: Add licence after installation (if possible??).
   - Zend Server: Set user/admin accounts after installation with Ansible (if possible??).

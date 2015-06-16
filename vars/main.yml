@@ -1,5 +1,5 @@
 ---
-# Common role
+# Common
 common_apt_packages:
   - python-apt
 
@@ -9,7 +9,24 @@ common_allowed_tcp_ports:
   - 10081
   - 10082
 
-mysql_root_password: myPassword
+# MySQL
+mysql_root_password: my-very-secret-password
+mysql_port: 3306
+mysql_socket: /var/run/mysqld/mysqld.sock
+mysql_pid: /var/run/mysqld/mysqld.pid
+mysql_nice: 0
+mysql_user: mysql
+mysql_base_dir: /usr
+mysql_data_dir: /var/lib/mysql
+mysql_tmp_dir: /tmp
+mysql_ls_msg_dir: /usr/share/mysql
+mysql_bind_address: 127.0.0.1
+mysql_error_log: /var/log/mysql/error.log
+mysql_sql_mode: NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+mysql_symbolic_links: 0
+mysql_include_dir: /etc/mysql/conf.d/
+
+# Zend Server
 zs_release: early-access # options: stable | early-access
 zs_php_version: 5.6      # php version
 zs_web_server: nginx     # options: nginx | apache
