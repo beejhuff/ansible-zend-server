@@ -9,5 +9,5 @@ install:
   - pip install ansible
 
 script:
-  - "ansible-playbook -i tests/inventory zend-server.yml --syntax-check"
-  - "ansible-playbook -i tests/inventory zend-server.yml"
+  - "ansible-playbook zend-server.yml --syntax-check"
+  - "ansible-playbook zend-server.yml"
