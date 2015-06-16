@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - pip install ansible
+  - sudo pip install ansible
 
 script:
   - "ansible-playbook zend-server.yml --syntax-check"
