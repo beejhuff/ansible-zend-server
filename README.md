@@ -42,7 +42,9 @@ full list of of settings (see `vars/main.yml`).
 
 ## TODO
 
-  - Cleanup and improve roles.
+  - Cleanup roles.
+  - Add more descriptive task names.
+  - Add support for other operating systems?
 
   - MySQL: Improve the cleanup off the default installation.
   - MySQL: Needs my.cnf more options?
