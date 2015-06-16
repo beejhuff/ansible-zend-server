@@ -40,6 +40,14 @@ This role will install Zend Server stable or ea with an Nginx or Apache webserve
 full list of of settings (see `vars/main.yml`).
 
 
+## Usage
+
+Change the settings of (zend-server.yml `zend-server.yml) to the correct ones that match your server, and run it like this:
+```code
+ansible-playbook zend-server.yml -K
+```
+
+
 ## TODO
 
   - Cleanup roles.
