@@ -15,4 +15,3 @@ install:
 
 script:
   - "ansible-playbook -i test/inventory zend-server.yml --syntax-check"
-  - "ansible-playbook -i test/inventory zend-server.yml --connection=local --sudo"

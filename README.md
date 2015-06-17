@@ -53,6 +53,7 @@ ansible-playbook zend-server.yml -K
   - Cleanup roles.
   - Add more descriptive task names.
   - Add support for other operating systems?
+  - Create tests for Travis.
 
   - MySQL: Improve the cleanup off the default installation.
   - MySQL: Needs my.cnf more options?
