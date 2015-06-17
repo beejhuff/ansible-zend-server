@@ -4,6 +4,7 @@
 
 - name: upgrade packages
   apt: upgrade=dist
+  when: common_apt_upgrade
 
 - name: apt packages
   apt: name={{ item }} state=latest

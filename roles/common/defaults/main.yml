@@ -1,4 +1,5 @@
 ---
+common_apt_upgrade: false
 common_apt_packages:
   - python-apt
 
