@@ -2,7 +2,9 @@
 
 # Ansible playbook for Zend Server
 
-Complete playbook for installing Zend Server and a MySQL server instance on Ubuntu 14.04 +.
+Playbook for installing Zend Server and a MySQL server instance on Ubuntu 14.04 +.
+
+This playbook is an work in progress, 
 
 
 ## Requirements
@@ -42,7 +44,7 @@ full list of of settings (see `vars/main.yml`).
 
 ## Usage
 
-Change the settings of (zend-server.yml `zend-server.yml) to the correct ones that match your server, and run it like this:
+Customize the settings of (zend-server.yml `zend-server.yml) to the correct ones that match your server, and run it like this:
 ```code
 ansible-playbook zend-server.yml -K
 ```
@@ -54,6 +56,8 @@ ansible-playbook zend-server.yml -K
   - Add more descriptive task names.
   - Add support for other operating systems?
   - Create tests for Travis.
+  - Make MySQL optional, and add more options like MongoDB.
+  - Create role for Redis.
 
   - MySQL: Improve the cleanup off the default installation.
   - MySQL: Needs my.cnf more options?
