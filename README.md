@@ -1,10 +1,8 @@
-[![Build Status](https://travis-ci.org/HardieBoeve/ansible-zend-server.svg)](https://travis-ci.org/HardieBoeve/ansible-zend-server)
+[![Build Status](https://travis-ci.org/boeve-web-development/ansible-zend-server.svg?branch=develop)](https://travis-ci.org/boeve-web-development/ansible-zend-server)
 
 # Ansible playbook for Zend Server
 
-Playbook for installing Zend Server and a MySQL server instance on Ubuntu 14.04 +.
-
-This playbook is an work in progress, 
+Playbook for installing Zend Server and MySQL on Ubuntu 14.04 +. Options for other database will be added soon.
 
 
 ## Requirements
@@ -21,7 +19,7 @@ This playbook is seperated in 3 roles for clarity, below you find an small descr
 ### Common
 
 Role that performs the general tasks and prepares the server for installation of Zend Server, for a full list of 
-settings (see `vars/main.yml`).
+settings [see](https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/common/defaults/main.yml).
 
 This role will execute the following tasks:
   - Updates apt cache.
@@ -33,22 +31,24 @@ This role will execute the following tasks:
 
 ### MySQL
 
-Role that install MySQL server and configures it, for a full list of settings (see `vars/main.yml`).
+Role that install MySQL server and configures it, for a full list of settings [see](https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/mysql/defaults/main.yml).
 
 
 ### Zend Server
 
-This role will install Zend Server stable or ea with an Nginx or Apache webserver, depending on your settings. For a 
-full list of of settings (see `vars/main.yml`).
+This role will install Zend Server stable or ea edition with an Nginx or Apache webserver, depending on your settings. For a 
+full list of of settings [see](https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/zend-server/defaults/main.yml).
 
 
 ## Usage
 
-Customize the settings of (zend-server.yml `zend-server.yml) to the correct ones that match your server, and run it like this:
+Rename and customize the file [zend-server.yml.dist](https://github.com/boeve-web-development/ansible-zend-server/blob/master/zend-server.yml.dist) to zend-server.yml, and edit the file [vars/main.yml](https://github.com/boeve-web-development/ansible-zend-server/blob/master/vars/main.yml) so that it will setup Zend Server with your prefered options. When finished you can run the file like this:
+
 ```code
 ansible-playbook zend-server.yml -K
 ```
 
+Note that the -K option is optional, if given, Ansible will ask for your sudo password before the playbook starts running.
 
 ## TODO
 
@@ -61,10 +61,9 @@ ansible-playbook zend-server.yml -K
   - Create tests for Travis.
   - Make MySQL optional, and add more options like MongoDB, PostgreSQL.
   - Create role for Redis, MongoDB, PostgreSQL.
-
   - MySQL: Improve the cleanup off the default installation.
   - MySQL: Needs my.cnf more options?
-  
-  - Zend Server: Add option to add server certificate.
-  - Zend Server: Add licence after installation (if possible??).
-  - Zend Server: Set user/admin accounts after installation with Ansible (if possible??).
+  - Zend Server: Add option to add server ssl certificate.
+  - Zend Server: Add licence after installation (needs more investigation).
+  - Zend Server: Set user/admin accounts after installation with Ansible (needs more investigation).
+  - Zend Server: Deploy application with Ansible (needs more investigation).
