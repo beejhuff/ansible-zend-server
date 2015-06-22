@@ -53,11 +53,14 @@ ansible-playbook zend-server.yml -K
 ## TODO
 
   - Cleanup roles.
-  - Add more descriptive task names.
-  - Add support for other operating systems?
+  - Add better docs. 
+  - Add better descriptive task names.
+  - Test on Docker container(s).
+  - Add cluster setup option??.
+  - Add support for other operating systems??
   - Create tests for Travis.
-  - Make MySQL optional, and add more options like MongoDB.
-  - Create role for Redis.
+  - Make MySQL optional, and add more options like MongoDB, PostgreSQL.
+  - Create role for Redis, MongoDB, PostgreSQL.
 
   - MySQL: Improve the cleanup off the default installation.
   - MySQL: Needs my.cnf more options?
