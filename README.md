@@ -21,7 +21,7 @@ This playbook is seperated in 3 roles for clarity, below you find an small descr
 ### Common
 
 Role that performs the general tasks and prepares the server for installation of Zend Server, for a full list of 
-settings [see]('https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/common/defaults/main.yml').
+settings [see](https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/common/defaults/main.yml).
 
 This role will execute the following tasks:
   - Updates apt cache.
@@ -33,13 +33,13 @@ This role will execute the following tasks:
 
 ### MySQL
 
-Role that install MySQL server and configures it, for a full list of settings [see]('https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/mysql/defaults/main.yml').
+Role that install MySQL server and configures it, for a full list of settings [see](https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/mysql/defaults/main.yml).
 
 
 ### Zend Server
 
 This role will install Zend Server stable or ea with an Nginx or Apache webserver, depending on your settings. For a 
-full list of of settings [see]('https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/zend-server/defaults/main.yml').
+full list of of settings [see](https://github.com/boeve-web-development/ansible-zend-server/blob/master/roles/zend-server/defaults/main.yml).
 
 
 ## Usage
