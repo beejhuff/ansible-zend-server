@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/HardieBoeve/ansible-zend-server.svg)](https://travis-ci.org/HardieBoeve/ansible-zend-server)
+[![Build Status](https://travis-ci.org/boeve-web-development/ansible-zend-server.svg?branch=develop)](https://travis-ci.org/boeve-web-development/ansible-zend-server)
 
 # Ansible playbook for Zend Server
 
