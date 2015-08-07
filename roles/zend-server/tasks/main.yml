@@ -11,15 +11,21 @@
     dest: /etc/apt/sources.list.d
   when: "zs_web_server == 'nginx'"
 
+- set_fact:
+    zend_server_repository: "{{ zs_repository_nginx }}"
+  when: "zs_web_server == 'nginx'"
+
+- set_fact:
+    zend_server_repository: "{{ zs_repository_apache }}"
+  when: "zs_web_server == 'apache'"
+
 - name: Ensure Zend repository public key is added.
   apt_key:
     url: http://repos.zend.com/zend.key
     state: present
 
-- name: Ensure Zend Server resource list is present.
-  copy:
-    src: zs-{{ zs_web_server }}-{{ zs_release }}.list
-    dest: /etc/apt/sources.list.d
+- name: Ensure Zend Server repository is present.
+  template: src=zend-server.list.j2 dest=/etc/apt/sources.list.d/zend-server.list
 
 - name: Ensure Zend Server is installed (when web server = nginx).
   apt:
