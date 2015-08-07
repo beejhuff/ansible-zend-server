@@ -17,6 +17,6 @@
   changed_when: reboot_required.rc == 0
   notify: reboot
 
-- name: Ensure required TCP are open.
+- name: Ensure required TCP ports are open.
   ufw: rule=allow port={{ item }} proto=tcp
   with_items: common_allowed_tcp_ports
